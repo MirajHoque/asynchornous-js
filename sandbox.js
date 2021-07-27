@@ -1,9 +1,17 @@
-console.log(1);
-console.log(2);
+//create a request object
+const request = new XMLHttpRequest();
 
-setTimeout( ()=> {
-  console.log('callback function fired');
-}, 2000)
+request.addEventListener('readystatechange', () => {
+  //console.log(request, request.readyState);
+  if(request.readyState===4)
+  console.log(request.responseText);
+}) 
 
-console.log(3);
-console.log(4);
+//'readystatechange': event
+
+//open(): used for setting request 
+request.open('GET', 'https://jsonplaceholder.typicode.com/todos')
+//open('type of request', 'where to make request')
+
+//send request
+request.send();
