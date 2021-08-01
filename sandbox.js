@@ -1,12 +1,20 @@
-fetch ('todos/luigi.json').then( (response) => {
-  console.log('resolved', response) //response(object)
-  return response.json() //returns a promise
-  // json() used for get actual data
-}).then( (data) => {
-  console.log(data);
-}).catch( (err) => {
-  console.log('rejected', err);
-})
+const getTodos = async () => {
+  
+  const response = await fetch('todos/luigi.json')
+  const data = response.json();
+  
+  return data;
+}
+
+console.log(1);
+console.log(2)
+
+getTodos()
+  .then( data => console.log('resolved' ,data) )
+
+  console.log(3)
+  console.log(4)
+
 
  
 
